@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-y: overlay;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply text-dark dark:text-light dark:bg-dark transition-colors;
+}
+
+::selection {
+    color: black;
+    @apply bg-gray-300 dark:bg-gray-400;
+}
+
+*::-webkit-scrollbar {
+    height: 10px;
+    width: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgba(80, 80, 80, 0.8);
+    border-radius: 10px;
+}
+
+.toggle {
+    --size: 1.25rem;
+
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+
+    width: var(--size);
+    height: var(--size);
+    box-shadow: inset calc(var(--size) * 0.33) calc(var(--size) * -0.25) 0;
+    border-radius: 999px;
+    color: hsl(240, 100%, 95%);
+
+    transition: all 500ms;
+}
+
+.toggle:checked {
+    --ray-size: calc(var(--size) * -0.4);
+    --offset-orthogonal: calc(var(--size) * 0.65);
+    --offset-diagonal: calc(var(--size) * 0.45);
+
+    transform: scale(0.75);
+    color: hsl(40, 100%, 50%);
+    box-shadow: inset 0 0 0 var(--size),
+        calc(var(--offset-orthogonal) * -1) 0 0 var(--ray-size),
+        var(--offset-orthogonal) 0 0 var(--ray-size),
+        0 calc(var(--offset-orthogonal) * -1) 0 var(--ray-size),
+        0 var(--offset-orthogonal) 0 var(--ray-size),
+        calc(var(--offset-diagonal) * -1) calc(var(--offset-diagonal) * -1) 0
+            var(--ray-size),
+        var(--offset-diagonal) var(--offset-diagonal) 0 var(--ray-size),
+        calc(var(--offset-diagonal) * -1) var(--offset-diagonal) 0
+            var(--ray-size),
+        var(--offset-diagonal) calc(var(--offset-diagonal) * -1) 0
+            var(--ray-size);
+}
+
+@layer base {
+    h1 {
+        @apply text-3xl font-bold md:text-5xl;
+    }
+
+    h2 {
+        @apply text-2xl font-bold md:text-4xl;
+    }
+
+    h3 {
+        @apply text-xl font-bold md:text-3xl;
+    }
+
+    h4 {
+        @apply text-lg font-bold md:text-xl;
+    }
+}
+
+@layer utilities {
+    .scroll-margin-nav {
+        scroll-margin-top: 84px;
+    }
+}
+
+.prose {
+    @apply text-justify;
+}
+
+.prose > p {
+    @apply indent-5;
+}
+
+.prose blockquote {
+    @apply border-dashed;
+}
+
+.prose pre {
+    @apply border-2 border-dashed border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-[#1D1F21];
+}
+
+.prose code {
+    @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-[#1D1F21];
+}
+
+.prose figure {
+    @apply w-full text-center mt-2 mb-4;
+}
+
+.prose figcaption {
+    @apply text-sm italic text-gray-700 dark:text-gray-300 my-5;
+}
+
+.prose img {
+    @apply m-0 !important;
+}
