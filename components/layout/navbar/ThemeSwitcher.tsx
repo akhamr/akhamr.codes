@@ -17,7 +17,7 @@ export default function ThemeSwitcher() {
         <input
             type="checkbox"
             onChange={() => setTheme(isDark ? 'light' : 'dark')}
-            checked={isDark}
+            checked={!isDark}
             className="toggle"
         />
     );
