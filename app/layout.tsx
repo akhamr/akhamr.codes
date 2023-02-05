@@ -22,7 +22,7 @@ export default function RootLayout({
                     <Navbar />
                     <div
                         id="main-content"
-                        className="flex flex-col flex-1 h-full w-full max-w-[85%] mx-auto pt-4 md:pt-11"
+                        className="h-full w-full max-w-[85%] mx-auto pt-4 md:pt-11"
                     >
                         {children}
                     </div>
