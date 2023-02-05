@@ -27,22 +27,24 @@ export default function Navbar() {
                 >
                     Akhamr.codes
                 </Link>
-                <div className="hidden md:flex mr-[6.75rem]">
-                    {links.map((link, i) => {
-                        return (
-                            <Link
-                                key={i}
-                                href={link.url}
-                                className="font-semibold rounded text-center text-sm py-3 px-5 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition duration-200 ease-in-out"
-                            >
-                                {link.text}
-                            </Link>
-                        );
-                    })}
-                </div>
-                <div className="flex space-x-3 px-3">
-                    <ThemeSwitcher />
-                    <MobileMenu />
+                <div className="flex">
+                    <div className="hidden md:flex">
+                        {links.map((link, i) => {
+                            return (
+                                <Link
+                                    key={i}
+                                    href={link.url}
+                                    className="font-semibold rounded text-center text-sm py-3 px-5 hover:bg-zinc-300 dark:hover:bg-zinc-700 transition duration-200 ease-in-out"
+                                >
+                                    {link.text}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                    <div className="flex items-center space-x-3 px-3">
+                        <ThemeSwitcher />
+                        <MobileMenu />
+                    </div>
                 </div>
             </div>
         </nav>

@@ -19,7 +19,7 @@ const links = [
 
 export default function MobileMenu() {
     return (
-        <Menu as="div" className={'h-7 w-7 md:hidden'}>
+        <Menu as="div" className="h-7 w-7 md:hidden">
             {({ open }) => (
                 <>
                     <Menu.Button>
@@ -37,7 +37,7 @@ export default function MobileMenu() {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Menu.Items className="absolute right-[7.5%] mt-8 mr-4 w-36 space-y-1 p-2 rounded-md bg-stone-100 dark:bg-stone-800 outline-dashed outline-2 outline-offset-4 outline-gray-200 dark:outline-gray-800">
+                        <Menu.Items className="absolute right-[7.5%] mt-8 mr-4 w-32 space-y-1 p-2 rounded-md bg-stone-100 dark:bg-stone-800 outline-dashed outline-2 outline-offset-4 outline-gray-200 dark:outline-gray-800">
                             {links.map((link, i) => {
                                 return (
                                     <Menu.Item key={i}>
