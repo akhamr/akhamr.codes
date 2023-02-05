@@ -18,7 +18,7 @@ export default function RootLayout({
         >
             <head />
             <body>
-                <ThemeProvider attribute="class">
+                <ThemeProvider attribute="class" enableColorScheme={false}>
                     <Navbar />
                     <div
                         id="main-content"

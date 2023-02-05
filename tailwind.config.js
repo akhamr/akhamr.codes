@@ -9,7 +9,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['var(--font-nunito)', 'sans-serif'],
+                sans: ['Nunito', 'sans-serif'],
                 doodle: ['var(--font-doodle)', 'cursive'],
                 footer: ['var(--font-footer)', 'cursive'],
             },
