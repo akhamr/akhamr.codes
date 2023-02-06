@@ -1,5 +1,5 @@
 import Seo from '@/components/Seo';
 
 export default function Head() {
-    return <Seo />;
+    return <Seo title="Blog" description="Mamam" />;
 }
