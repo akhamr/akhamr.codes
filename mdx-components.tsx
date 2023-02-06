@@ -12,8 +12,10 @@ const CustomImage = ({ alt, ...props }: ImageProps) => {
                 {...props}
                 width="0"
                 height="0"
+                sizes="100vw"
                 className="w-full h-auto"
                 alt={alt}
+                priority
             />
             <p className="text-sm italic">{alt}</p>
         </div>
