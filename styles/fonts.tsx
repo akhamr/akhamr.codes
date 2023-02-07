@@ -5,7 +5,7 @@ export const doodle = Mansalva({
     weight: '400',
 });
 
-export const nunito = Nunito({
+export const sans = Nunito({
     variable: '--font-nunito',
 });
 

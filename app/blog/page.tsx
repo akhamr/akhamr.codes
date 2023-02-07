@@ -1,10 +1,7 @@
-// import Mdx from './tes.mdx';
-
 export default function Blog() {
     return (
-        // <Mdx />
-        <div className="text-5xl font-extrabold flex justify-center items-center h-screen">
-            Ini Blog!
+        <div className="flex justify-center items-center">
+            <p className="text-5xl font-extrabold ">Ini Blog!</p>
         </div>
     );
 }
