@@ -28,7 +28,7 @@ body {
 }
 
 .toggle {
-    --size: 1.25rem;
+    --size: 18px;
 
     appearance: none;
     outline: none;

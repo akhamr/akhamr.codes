@@ -1,5 +1,5 @@
 import { Menu, Transition } from '@headlessui/react';
-import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/20/solid';
+import { Bars3BottomRightIcon, XMarkIcon } from '@heroicons/react/24/solid';
 import Link from 'next/link';
 
 const links = [
@@ -24,9 +24,9 @@ export default function MobileMenu() {
                 <>
                     <Menu.Button>
                         {open ? (
-                            <XMarkIcon className="block h-7 w-7" />
+                            <XMarkIcon className="h-7 w-7" />
                         ) : (
-                            <Bars3BottomRightIcon className="block h-7 w-7" />
+                            <Bars3BottomRightIcon className="h-7 w-7" />
                         )}
                     </Menu.Button>
                     <Transition
