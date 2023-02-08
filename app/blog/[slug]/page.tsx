@@ -1,6 +1,7 @@
 import { getPostBySlug, getSlug } from '@/hooks/PostLib';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import MdxComponent from '@/styles/mdx';
 const day = require('dayjs');
 
 export default async function Post() {
@@ -35,7 +36,7 @@ export default async function Post() {
             </div>
             <div className="prose dark:prose-dark max-w-full">
                 {/* @ts-expect-error Server Component */}
-                <MDXRemote source={content} />
+                <MDXRemote source={content} components={MdxComponent} />
             </div>
         </section>
     );
