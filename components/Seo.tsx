@@ -17,7 +17,7 @@ export default function Seo({ title, description, image }: HeadProps) {
             type: 'website',
             images: [
                 {
-                    url: `${image || config.baseUrl}/og-default.png}`,
+                    url: `${image || config.baseUrl/og-default.png}`,
                 },
             ],
         },
