@@ -28,8 +28,7 @@ const toValidSlug = (baseString: string): string => {
     return baseString.replace(new RegExp(` `, `g`), `-`).toLowerCase();
 };
 
-const MdxComponent = () => {
-    return {
+const MdxComponent = {
         Img: CustomImage,
         h1: ({ children }: Props) => {
             return (
@@ -103,7 +102,6 @@ const MdxComponent = () => {
                 </h6>
             );
         },
-    };
 }
 
 
