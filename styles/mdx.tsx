@@ -25,7 +25,7 @@ const toValidSlug = (baseString: string): string => {
     return baseString.replace(new RegExp(` `, `g`), `-`).toLowerCase();
 };
 
-export default function MdxComponent() {
+export function MdxComponent() {
     return {
         Img: CustomImage,
         h1: ({ children }: Props) => {
