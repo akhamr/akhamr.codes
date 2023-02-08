@@ -1,7 +1,7 @@
 import { getPostBySlug, getSlug } from '@/hooks/PostLib';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import MdxComponent from '@/styles/mdx';
+import { MdxComponent } from '@/styles/mdx';
 const day = require('dayjs');
 
 export default async function Post() {
