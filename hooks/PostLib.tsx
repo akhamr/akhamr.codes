@@ -32,7 +32,7 @@ export async function getPostBySlug(slug: string | string[] | undefined) {
             description: data.description,
             date: data.date,
             image: data.image,
-            readTime: readingTime(content),
+            readingTime: readingTime(content),
             ...data,
         },
     };
