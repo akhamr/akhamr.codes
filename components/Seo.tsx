@@ -15,9 +15,13 @@ export default function Seo({ title, description, image }: HeadProps) {
         description: `${description || config.description}`,
         openGraph: {
             type: 'website',
-            images: [
+            images: image : [
                 {
-                    url: `${config.baseUrl}${image || /og-default.png}`,
+                    url: `${config.baseUrl}${image}`,
+                },
+            ] : [
+                {
+                    url: `${config.baseUrl}/og-default.png`,
                 },
             ],
         },
