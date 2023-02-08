@@ -1,6 +1,7 @@
 import { getPostBySlug, getSlug } from '@/hooks/PostLib';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+const day = require('dayjs');
 
 export default async function Post() {
     const slug = await getSlug();
@@ -23,7 +24,7 @@ export default async function Post() {
                         <Link href="/about" className="font-semibold">
                             Akha
                         </Link>{' '}
-                        / {frontmatter.date}
+                        / {day(frontmatter.date).format('MMMM DD, YYYY')}
                     </p>
                     <p className="ml-auto">
                         {`${frontmatter.readingTime.text}`}

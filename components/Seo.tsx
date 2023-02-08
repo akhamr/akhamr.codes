@@ -5,9 +5,10 @@ import { NextSeoProps, NextSeo } from 'next-seo';
 interface HeadProps {
     title?: string;
     description?: string;
+    image?: string;
 }
 
-export default function Seo({ title, description }: HeadProps) {
+export default function Seo({ title, description, image }: HeadProps) {
     const DefaultSeo: NextSeoProps = {
         defaultTitle: "It's me, akha!",
         titleTemplate: '%s · Akhamr.codes',
@@ -16,7 +17,7 @@ export default function Seo({ title, description }: HeadProps) {
             type: 'website',
             images: [
                 {
-                    url: `${config.baseUrl}/og-default.png`,
+                    url: `${image || config.baseUrl}/og-default.png}`,
                 },
             ],
         },
