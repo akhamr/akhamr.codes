@@ -15,7 +15,7 @@ export default function Seo({ title, description, image }: HeadProps) {
         description: `${description || config.description}`,
         openGraph: {
             type: 'website',
-            images: image : [
+            images: image ? [
                 {
                     url: `${config.baseUrl}${image}`,
                 },
