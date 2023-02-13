@@ -28,8 +28,8 @@ export default async function Blog() {
                                         src={frontMatter.image}
                                         alt={frontMatter.title}
                                         className="rounded-t"
-                                        width="512"
-                                        height="267"
+                                        width="640"
+                                        height="335"
                                     />
                                 </div>
                                 <div className="p-2 rounded-b text-sm md:text-base">

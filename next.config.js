@@ -6,6 +6,16 @@ const nextConfig = {
             { loader: '@next/font/google', options: { subsets: ['latin'] } },
         ],
     },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'source.unsplash.com',
+                port: '',
+                pathname: '/**',
+            },
+        ],
+    },
 };
 
 module.exports = nextConfig;
