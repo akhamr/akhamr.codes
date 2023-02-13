@@ -3,7 +3,6 @@ import path from 'path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
 const root = process.cwd();
-const sync = require('glob').sync;
 
 const articlesPath = path.join(root, 'data/blog');
 
