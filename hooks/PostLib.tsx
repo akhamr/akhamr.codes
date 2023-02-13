@@ -8,7 +8,7 @@ const articlesPath = path.join(root, 'data/blog');
 
 export async function getPostBySlug(slug: string | string[] | undefined) {
     const articleDir = path.join(articlesPath, `${slug}.mdx`);
-    const source = fs.readFileSync(articleDir);
+    const source = fs.readFileSync(articleDir, 'utf8');
     const { content, data } = matter(source);
 
     return {
@@ -30,7 +30,7 @@ export async function getAllPost() {
 
     return articles.reduce((allArticles: any[], articleSlug: string) => {
         const source = fs.readFileSync(
-            path.join(root, 'data/blog', articleSlug),
+            path.join(articlesPath, articleSlug),
             'utf-8'
         );
         const { data, content } = matter(source);
