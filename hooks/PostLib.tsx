@@ -6,9 +6,9 @@ const root = process.cwd();
 
 const articlesPath = path.join(root, 'data/blog');
 
-export async function getPostBySlug(slug: string | string[] | undefined) {
+export async function getPostBySlug(slug: string) {
     const articleDir = path.join(articlesPath, `${slug}.mdx`);
-    const source = fs.readFileSync(articleDir, 'utf8');
+    const source = fs.readFileSync(articleDir);
     const { content, data } = matter(source);
 
     return {

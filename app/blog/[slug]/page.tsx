@@ -93,8 +93,8 @@ const MdxComponent = {
 };
 
 export default async function Post({ params }: { params: { slug: string } }) {
-    const { content, frontmatter } = await getPostBySlug(params?.slug);
-
+    // return <p>{params.slug}</p>;
+    const { content, frontmatter } = await getPostBySlug(params.slug);
     return (
         <section
             id="main-content"
