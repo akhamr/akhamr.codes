@@ -1,4 +1,4 @@
-import { getPostBySlug, getSlug } from '@/hooks/PostLib';
+import { getPostBySlug } from '@/hooks/PostLib';
 import Link from 'next/link';
 import Image, { ImageProps } from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -29,84 +29,71 @@ const toValidSlug = (baseString: string): string => {
 };
 
 const MdxComponent = {
-        Img: CustomImage,
-        h1: ({ children }: Props) => {
-            return (
-                <h1
-                    id={toValidSlug(children as string)}
-                    className="scroll-margin-nav"
-                >
-                    <Link href={`#${toValidSlug(children as string)}`}>
-                        {children}
-                    </Link>
-                </h1>
-            );
-        },
-        h2: ({ children }: Props) => {
-            return (
-                <h2
-                    id={toValidSlug(children as string)}
-                    className="scroll-margin-nav"
-                >
-                    <Link href={`#${toValidSlug(children as string)}`}>
-                        {children}
-                    </Link>
-                </h2>
-            );
-        },
-        h3: ({ children }: Props) => {
-            return (
-                <h3
-                    id={toValidSlug(children as string)}
-                    className="scroll-margin-nav"
-                >
-                    <Link href={`#${toValidSlug(children as string)}`}>
-                        {children}
-                    </Link>
-                </h3>
-            );
-        },
-        h4: ({ children }: Props) => {
-            return (
-                <h4
-                    id={toValidSlug(children as string)}
-                    className="scroll-margin-nav"
-                >
-                    <Link href={`#${toValidSlug(children as string)}`}>
-                        {children}
-                    </Link>
-                </h4>
-            );
-        },
-        h5: ({ children }: Props) => {
-            return (
-                <h5
-                    id={toValidSlug(children as string)}
-                    className="scroll-margin-nav"
-                >
-                    <Link href={`#${toValidSlug(children as string)}`}>
-                        {children}
-                    </Link>
-                </h5>
-            );
-        },
-        h6: ({ children }: Props) => {
-            return (
-                <h6
-                    id={toValidSlug(children as string)}
-                    className="scroll-margin-nav"
-                >
-                    <Link href={`#${toValidSlug(children as string)}`}>
-                        {children}
-                    </Link>
-                </h6>
-            );
-        },
-}
+    Img: CustomImage,
+    h1: ({ children }: Props) => {
+        return (
+            <h1
+                id={toValidSlug(children as string)}
+                className="scroll-margin-nav"
+            >
+                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
+            </h1>
+        );
+    },
+    h2: ({ children }: Props) => {
+        return (
+            <h2
+                id={toValidSlug(children as string)}
+                className="scroll-margin-nav"
+            >
+                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
+            </h2>
+        );
+    },
+    h3: ({ children }: Props) => {
+        return (
+            <h3
+                id={toValidSlug(children as string)}
+                className="scroll-margin-nav"
+            >
+                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
+            </h3>
+        );
+    },
+    h4: ({ children }: Props) => {
+        return (
+            <h4
+                id={toValidSlug(children as string)}
+                className="scroll-margin-nav"
+            >
+                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
+            </h4>
+        );
+    },
+    h5: ({ children }: Props) => {
+        return (
+            <h5
+                id={toValidSlug(children as string)}
+                className="scroll-margin-nav"
+            >
+                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
+            </h5>
+        );
+    },
+    h6: ({ children }: Props) => {
+        return (
+            <h6
+                id={toValidSlug(children as string)}
+                className="scroll-margin-nav"
+            >
+                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
+            </h6>
+        );
+    },
+};
 
-
-export default async function Post() {
-    const slug = await getSlug();
+export default async function Post({ params }: { params: { slug: string } }) {
+    const { slug } = params;
     const { content, frontmatter } = await getPostBySlug(slug);
 
     return (

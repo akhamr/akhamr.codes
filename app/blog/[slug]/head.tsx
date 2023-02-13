@@ -1,8 +1,8 @@
 import Seo from '@/components/Seo';
-import { getPostBySlug, getSlug } from '@/hooks/PostLib';
+import { getPostBySlug } from '@/hooks/PostLib';
 
-export default async function Head() {
-    const slug = await getSlug();
+export default async function Head({ params }: { params: { slug: string } }) {
+    const { slug } = params;
     const { frontmatter } = await getPostBySlug(slug);
 
     return (

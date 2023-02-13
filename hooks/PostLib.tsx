@@ -7,18 +7,6 @@ const sync = require('glob').sync;
 
 const articlesPath = path.join(root, 'data/blog');
 
-export async function getSlug() {
-    const paths = sync(`${articlesPath}/*.mdx`);
-
-    return paths.map((path: string) => {
-        const pathContent = path.split('/');
-        const fileName = pathContent[pathContent.length - 1];
-        const [slug, _extension] = fileName.split('.');
-
-        return slug;
-    });
-}
-
 export async function getPostBySlug(slug: string | string[] | undefined) {
     const articleDir = path.join(articlesPath, `${slug}.mdx`);
     const source = fs.readFileSync(articleDir);
