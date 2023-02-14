@@ -1,4 +1,4 @@
-import { getPostBySlug } from '@/hooks/PostLib';
+import { getFiles, getPostBySlug } from '@/hooks/PostLib';
 import Link from 'next/link';
 import Image, { ImageProps } from 'next/image';
 import { MDXRemote } from 'next-mdx-remote/rsc';
@@ -127,4 +127,14 @@ export default async function Post({ params }: { params: { slug: string } }) {
             </div>
         </section>
     );
+}
+
+export async function generateStaticParams() {
+    const posts = await getFiles();
+    return posts.map((post) => {
+        const slug = post.replace(/\.mdx/, '');
+        return {
+            slug: slug,
+        };
+    });
 }
