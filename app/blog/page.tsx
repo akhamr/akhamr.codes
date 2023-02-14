@@ -32,16 +32,20 @@ export default async function Blog() {
                                         height="335"
                                     />
                                 </div>
-                                <div className="p-2 rounded-b text-sm md:text-base">
-                                    <h4>{frontMatter.title}</h4>
-                                    <div className="text-xs md:text-sm mb-2 text-gray-700 dark:text-gray-300">
+                                <div className="p-2 rounded-b">
+                                    <h4 className="leading-snug">
+                                        {frontMatter.title}
+                                    </h4>
+                                    <div className="text-xs md:text-sm my-1 text-gray-700 dark:text-gray-300">
                                         {day(frontMatter.date).format(
                                             'MMMM DD, YYYY'
                                         )}
                                         {` • ${frontMatter.readingTime.text}`}
                                         {` • ${frontMatter.readingTime.words} word(s)`}
                                     </div>
-                                    <p>{frontMatter.description}</p>
+                                    <p className="text-sm md:text-base">
+                                        {frontMatter.description}
+                                    </p>
                                 </div>
                             </div>
                         </Link>
