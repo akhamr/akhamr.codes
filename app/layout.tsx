@@ -20,7 +20,10 @@ export default function RootLayout({
             <body className="flex flex-col justify-between h-screen">
                 <ThemeProvider attribute="class" enableColorScheme={false}>
                     <Navbar />
-                    <div id="main-content" className="max-w-[85%] mx-auto">
+                    <div
+                        id="main-content"
+                        className="max-w-[85%] mx-auto flex-1"
+                    >
                         {children}
                     </div>
                     <Footer />
