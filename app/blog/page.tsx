@@ -10,7 +10,7 @@ export default async function Blog() {
     );
     return (
         <>
-            <h1 className="mt-4 md:mt-6 text-4xl md:text-6xl">Blog</h1>
+            <h1 className="mt-4 md:mt-11 pt-3 text-4xl md:text-6xl">Blog</h1>
             <p className="mt-2">
                 Some blabber and stuff i didn&apos;t mean to made.
             </p>
