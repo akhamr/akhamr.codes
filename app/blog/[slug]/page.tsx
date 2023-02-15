@@ -1,7 +1,9 @@
 import { getFiles, getPostBySlug } from '@/hooks/PostLib';
 import Link from 'next/link';
 import Image, { ImageProps } from 'next/image';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { compileMDX } from 'next-mdx-remote/rsc';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 const day = require('dayjs');
 
 interface Props {
@@ -24,77 +26,27 @@ const CustomImage = ({ alt, ...props }: ImageProps) => {
     );
 };
 
-const toValidSlug = (baseString: string): string => {
-    return baseString.replace(new RegExp(` `, `g`), `-`).toLowerCase();
-};
-
 const MdxComponent = {
     Img: CustomImage,
-    h1: ({ children }: Props) => {
-        return (
-            <h1
-                id={toValidSlug(children as string)}
-                className="scroll-margin-nav"
-            >
-                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
-            </h1>
-        );
-    },
-    h2: ({ children }: Props) => {
-        return (
-            <h2
-                id={toValidSlug(children as string)}
-                className="scroll-margin-nav"
-            >
-                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
-            </h2>
-        );
-    },
-    h3: ({ children }: Props) => {
-        return (
-            <h3
-                id={toValidSlug(children as string)}
-                className="scroll-margin-nav"
-            >
-                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
-            </h3>
-        );
-    },
-    h4: ({ children }: Props) => {
-        return (
-            <h4
-                id={toValidSlug(children as string)}
-                className="scroll-margin-nav"
-            >
-                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
-            </h4>
-        );
-    },
-    h5: ({ children }: Props) => {
-        return (
-            <h5
-                id={toValidSlug(children as string)}
-                className="scroll-margin-nav"
-            >
-                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
-            </h5>
-        );
-    },
-    h6: ({ children }: Props) => {
-        return (
-            <h6
-                id={toValidSlug(children as string)}
-                className="scroll-margin-nav"
-            >
-                <a href={`#${toValidSlug(children as string)}`}>{children}</a>
-            </h6>
-        );
-    },
 };
 
 export default async function Post({ params }: { params: { slug: string } }) {
-    // return <p>{params.slug}</p>;
     const { content, frontmatter } = await getPostBySlug(params.slug);
+    /* @ts-expect-error Server Component */
+    const body = await compileMDX({
+        source: content,
+        options: {
+            mdxOptions: {
+                remarkPlugins: [],
+                rehypePlugins: [
+                    rehypeSlug,
+                    [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+                ],
+            },
+        },
+        components: MdxComponent,
+    });
+
     return (
         <section
             id="main-content"
@@ -122,8 +74,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 <hr className="mt-2 mb-2 border-gray-200 dark:border-gray-800 border-dashed" />
             </div>
             <div className="prose dark:prose-dark max-w-full">
-                {/* @ts-expect-error Server Component */}
-                <MDXRemote source={content} components={MdxComponent} />
+                {body.content}
             </div>
         </section>
     );
