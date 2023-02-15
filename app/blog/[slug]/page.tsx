@@ -1,51 +1,9 @@
 import { getFiles, getPostBySlug } from '@/hooks/PostLib';
 import Link from 'next/link';
-import Image, { ImageProps } from 'next/image';
-import { compileMDX } from 'next-mdx-remote/rsc';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 const day = require('dayjs');
 
-interface Props {
-    children?: React.ReactNode;
-}
-
-const CustomImage = ({ alt, ...props }: ImageProps) => {
-    return (
-        <div className="w-full text-center mt-2 mb-4">
-            <Image
-                {...props}
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-full h-auto"
-                alt={alt}
-            />
-            <p className="text-sm italic">{alt}</p>
-        </div>
-    );
-};
-
-const MdxComponent = {
-    Img: CustomImage,
-};
-
 export default async function Post({ params }: { params: { slug: string } }) {
-    const { content, frontmatter } = await getPostBySlug(params.slug);
-    /* @ts-expect-error Server Component */
-    const body = await compileMDX({
-        source: content,
-        options: {
-            mdxOptions: {
-                remarkPlugins: [],
-                rehypePlugins: [
-                    rehypeSlug,
-                    [rehypeAutolinkHeadings, { behavior: 'wrap' }],
-                ],
-            },
-        },
-        components: MdxComponent,
-    });
+    const { body, frontmatter } = await getPostBySlug(params.slug);
 
     return (
         <section
@@ -73,9 +31,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
                 </div>
                 <hr className="mt-2 mb-2 border-gray-200 dark:border-gray-800 border-dashed" />
             </div>
-            <div className="prose dark:prose-dark max-w-full">
-                {body.content}
-            </div>
+            <div className="prose dark:prose-dark max-w-full">{body}</div>
         </section>
     );
 }

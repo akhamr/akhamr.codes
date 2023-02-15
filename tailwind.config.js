@@ -30,7 +30,7 @@ module.exports = {
                                 },
                             },
                             scrollMarginTop: '84px',
-                            '@media (min-width: 500px)': {
+                            '@media (min-width: 768px)': {
                                 scrollMarginTop: '40px',
                             },
                         },
