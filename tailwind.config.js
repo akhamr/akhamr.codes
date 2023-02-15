@@ -29,6 +29,7 @@ module.exports = {
                                     textDecoration: 'underline',
                                 },
                             },
+                            scrollMarginTop: '84px',
                         },
                     },
                 },

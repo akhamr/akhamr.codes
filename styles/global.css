@@ -82,12 +82,6 @@ body {
     }
 }
 
-@layer utilities {
-    .scroll-margin-nav {
-        scroll-margin-top: 84px;
-    }
-}
-
 .prose {
     @apply text-justify;
 }
@@ -107,14 +101,6 @@ body {
 .prose code {
     @apply text-gray-800 dark:text-gray-200 px-1 py-0.5 border border-gray-100 dark:border-gray-800 rounded-md bg-gray-100 dark:bg-[#1D1F21];
 }
-
-/* .prose figure {
-    @apply w-full text-center mt-2 mb-4;
-}
-
-.prose figcaption {
-    @apply text-sm italic text-gray-700 dark:text-gray-300 my-5;
-} */
 
 .prose img {
     @apply m-0 !important;
