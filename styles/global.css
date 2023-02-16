@@ -105,3 +105,11 @@ body {
 .prose img {
     @apply m-0 !important;
 }
+
+.prose .table-wrapper {
+    @apply overflow-x-auto;
+}
+
+.prose table {
+    @apply m-0 w-max;
+}

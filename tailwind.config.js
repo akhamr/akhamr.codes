@@ -34,6 +34,8 @@ module.exports = {
                                 scrollMarginTop: '40px',
                             },
                         },
+                        strong: { fontWeight: 'bold' },
+                        a: { fontWeight: 'bold' },
                     },
                 },
                 dark: {
@@ -63,9 +65,15 @@ module.exports = {
                                 },
                             },
                         },
-                        strong: { color: theme('colors.gray.300') },
+                        strong: {
+                            color: theme('colors.gray.300'),
+                            fontWeight: 'bold',
+                        },
                         thead: {
                             color: theme('colors.gray.100'),
+                            th: {
+                                color: theme('colors.gray.100'),
+                            },
                         },
                         tbody: {
                             tr: {

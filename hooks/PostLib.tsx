@@ -6,6 +6,7 @@ import Image, { ImageProps } from 'next/image';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import remarkGfm from 'remark-gfm';
 const root = process.cwd();
 
 const articlesPath = path.join(root, 'data/blog');
@@ -24,7 +25,7 @@ export async function getPostBySlug(slug: string) {
         source: content,
         options: {
             mdxOptions: {
-                remarkPlugins: [],
+                remarkPlugins: [remarkGfm],
                 rehypePlugins: [
                     rehypeSlug,
                     [rehypeAutolinkHeadings, { behavior: 'wrap' }],
